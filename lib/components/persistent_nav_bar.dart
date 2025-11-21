@@ -16,7 +16,6 @@ class PersistentTabScreen extends StatefulWidget {
 
 class _PersistentTabScreenState extends State<PersistentTabScreen> {
   late PersistentTabController _controller;
-  int _previousIndex = 0;
 
   List<Widget> _buildScreens() {
     return [

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon_guessing_v2/components/Provider/statusmodel.dart';
 import 'package:pokemon_guessing_v2/utility/constants.dart';
@@ -27,7 +26,7 @@ class ItemCardPokemon extends StatelessWidget {
             ? Image.asset("assets/pokemonSprites/$id.png")
             : (value.isEasyMode
                 ? (Image.asset("assets/pokemonSprites/$id.png",
-                    color: Colors.black))
+                    color: const Color.fromARGB(50, 0, 0, 0)))
                 : Container());
 
         final Image pokeball = idIsGuessed
