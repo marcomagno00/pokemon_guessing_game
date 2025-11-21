@@ -48,13 +48,13 @@ class _GuessingPageState extends State<GuessingPage> {
                 ),
               ),
               body: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: Column(
                   children: [
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                       Expanded(
                           child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 8.0, right: 8),
                         child: TextField(
                           decoration: const InputDecoration(
                             hintText: "Write here a Pokémon",
@@ -126,7 +126,8 @@ class _GuessingPageState extends State<GuessingPage> {
                         itemCount: widget.numberOfPokemon,
                         itemBuilder: (BuildContext context, int index) {
                           var id = widget.offsetPokemon + index;
-                          return guessedIdPokemon.contains(id)
+
+                          return value.guessed.contains(id)
                               ? Padding(
                                   padding: const EdgeInsets.all(1),
                                   child: Image.asset(
@@ -134,10 +135,18 @@ class _GuessingPageState extends State<GuessingPage> {
                                   ))
                               : Padding(
                                   padding: const EdgeInsets.all(1),
-                                  child: Image.asset(
-                                      "assets/images/emptypokeball.png",
-                                      color:
-                                          const Color.fromARGB(100, 0, 0, 0)),
+                                  child: value.isEasyMode
+                                      ? Center(
+                                          child: Image.asset(
+                                            "assets/pokemonSprites/$id.png",
+                                            color: const Color.fromARGB(
+                                                50, 0, 0, 0),
+                                          ),
+                                        )
+                                      : Image.asset(
+                                          "assets/images/emptypokeball.png",
+                                          color: const Color.fromARGB(
+                                              50, 0, 0, 0)),
                                 );
                         },
                         gridDelegate:

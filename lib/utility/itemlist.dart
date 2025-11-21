@@ -23,12 +23,13 @@ class ItemCardPokemon extends StatelessWidget {
         final Color lastColor = pokemonTypeColors[
                 (mapOfAllPokemon[index]["type"]! as List).last as String] ??
             Colors.grey;
-        final Image sprite = idIsGuessed
+        final Widget sprite = idIsGuessed
             ? Image.asset("assets/pokemonSprites/$id.png")
-            : Image.asset(
-                "assets/pokemonSprites/$id.png",
-                color: Colors.black,
-              );
+            : (value.isEasyMode
+                ? (Image.asset("assets/pokemonSprites/$id.png",
+                    color: Colors.black))
+                : Container());
+
         final Image pokeball = idIsGuessed
             ? Image.asset("assets/images/pokeballcolored.png")
             : Image.asset("assets/images/pokeballempty.png",
@@ -74,7 +75,7 @@ class ItemCardPokemon extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Colors.grey.shade400,
                   borderRadius: BorderRadiusDirectional.circular(10)),
               child: Center(
                 child: Row(

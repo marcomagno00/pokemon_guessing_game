@@ -4,6 +4,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:pokemon_guessing_v2/screens/dex/dex.dart';
 import 'package:pokemon_guessing_v2/screens/home/home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pokemon_guessing_v2/screens/profile/profile.dart';
 import 'package:pokemon_guessing_v2/utility/constants.dart';
 
 class PersistentTabScreen extends StatefulWidget {
@@ -15,11 +16,13 @@ class PersistentTabScreen extends StatefulWidget {
 
 class _PersistentTabScreenState extends State<PersistentTabScreen> {
   late PersistentTabController _controller;
+  int _previousIndex = 0;
 
   List<Widget> _buildScreens() {
     return [
       const HomePage(),
       const DexPage(),
+      const ProfilePage(),
     ];
   }
 
@@ -50,6 +53,23 @@ class _PersistentTabScreenState extends State<PersistentTabScreen> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
         /*
         scrollController: _scrollController2,
+        routeAndNavigatorSettings: RouteAndNavigatorSettings(
+          initialRoute: "/",
+          routes: {
+            "/first": (final context) => const MainScreen2(),
+            "/second": (final context) => const MainScreen3(),
+          },
+        ),
+        */
+      ),
+      PersistentBottomNavBarItem(
+        icon:
+            SvgPicture.asset("assets/images/pokeball.svg", color: Colors.white),
+        title: ("PROFILE"),
+        activeColorPrimary: CupertinoColors.white,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+        /*
+        scrollController: _scrollController1,
         routeAndNavigatorSettings: RouteAndNavigatorSettings(
           initialRoute: "/",
           routes: {

@@ -23,9 +23,7 @@ class CardGeneration extends StatelessWidget {
         color: light_blue,
         borderOnForeground: false,
         child: InkWell(
-          onLongPress: () {
-            Provider.of<Status>(context, listen: false).clearIds(gen: gen);
-          },
+          onLongPress: () {},
           onTap: () async {
             await Navigator.push(
               context,

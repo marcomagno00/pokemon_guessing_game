@@ -21,35 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-          child: Container(
-        color: blue,
-        child: ListView(
-          children: const [
-            DrawerHeader(
-              child: Center(
-                child: Text(
-                  "P O K E M O N\nG U E S S I N G",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-          ],
-        ),
-      )),
       appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              color: Colors.white,
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
         title: const Text(
           "P O K E M O N   G U E S S I N G",
           style: TextStyle(color: Colors.white),
@@ -62,8 +34,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               child: GridView.builder(
-                physics:
-                    const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+                //physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
                 itemCount: 6,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
